@@ -4,3 +4,5 @@ Companion code to the article "Directional Reverberation Time and the Image Sour
 S. Bilbao, B. Alary,
 "Directional Reverberation Time and the Image Source Method for Rectangular Parallelepipedal Rooms",
 accepted for publication in the J. Acoust. Soc. Am. X X 2024; XX (XX):XXXX–XXXX.
+
+![Example](figure2.jpg)
