@@ -7,8 +7,9 @@
 % formula detailed in the following article :
 %
 % S. Bilbao, B. Alary,
-% Directional Reverberation Time and the Image Source Method for Rectangular Parallelepipedal Rooms 
-% accepted for publication in J. Acoust. Soc. Am. X X 2024; XX (XX):XXXX–XXXX. 
+% "Directional Reverberation Time and the Image Source Method for Rectangular Parallelepipedal Rooms",
+% J. Acoust. Soc. Am. 1 February 2024; 155 (2): 1343–1352. 
+% https://doi.org/10.1121/10.0024975
 % 
 %
 % Input:
@@ -32,9 +33,10 @@ end
 function K = DirectionalSlope(s_grid, L_v, Z0, isAngleDependent)
 
     %% See equation 29:
-    % S. Bilbao, B. Alary,  
-    % Directional Reverberation Time and the Image Source Method for Rectangular Parallelepipedal Rooms 
-    % accepted for publication in J. Acoust. Soc. Am. X X 2024; XX (XX):XXXX–XXXX. 
+	% S. Bilbao, B. Alary,
+	% "Directional Reverberation Time and the Image Source Method for Rectangular Parallelepipedal Rooms",
+	% J. Acoust. Soc. Am. 1 February 2024; 155 (2): 1343–1352. 
+	% https://doi.org/10.1121/10.0024975
 
     % Z0 corresponds to the normalized impedance for each walls, 
     % aligned to a cartesian grid, in the following order
@@ -67,9 +69,10 @@ end
 function K_partial = AbsorptionSlope(Z_alpha, u_v, L_v, isAngleDependent)
     
     %% See inside component of equation 29:
-    % S. Bilbao, B. Alary,  
-    % Directional Reverberation Time and the Image Source Method for Rectangular Parallelepipedal Rooms 
-    % accepted for publication in J. Acoust. Soc. Am. X X 2024; XX (XX):XXXX–XXXX. 
+	% S. Bilbao, B. Alary,
+	% "Directional Reverberation Time and the Image Source Method for Rectangular Parallelepipedal Rooms",
+	% J. Acoust. Soc. Am. 1 February 2024; 155 (2): 1343–1352. 
+	% https://doi.org/10.1121/10.0024975
 
     if isAngleDependent
         beta_alpha = (Z_alpha .* abs(u_v) - 1) ./ (Z_alpha .* abs(u_v) + 1);
@@ -85,9 +88,10 @@ end
 function RT60 = CalculateRT60(K)
 
     %% See equation 34:
-    % S. Bilbao, B. Alary,  
-    % Directional Reverberation Time and the Image Source Method for Rectangular Parallelepipedal Rooms 
-    % accepted for publication in J. Acoust. Soc. Am. X X 2024; XX (XX):XXXX–XXXX. 
+	% S. Bilbao, B. Alary,
+	% "Directional Reverberation Time and the Image Source Method for Rectangular Parallelepipedal Rooms",
+	% J. Acoust. Soc. Am. 1 February 2024; 155 (2): 1343–1352. 
+	% https://doi.org/10.1121/10.0024975
 
     % Convert exponential decay to reverberation time
     RT60 = (6*log(10)) ./ K;

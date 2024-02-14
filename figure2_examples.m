@@ -7,8 +7,9 @@
 % formula detailed in the following article :
 %
 % S. Bilbao, B. Alary,
-% Directional Reverberation Time and the Image Source Method for Rectangular Parallelepipedal Rooms 
-% accepted for publication in J. Acoust. Soc. Am. X X 2024; XX (XX):XXXX–XXXX. 
+% "Directional Reverberation Time and the Image Source Method for Rectangular Parallelepipedal Rooms",
+% J. Acoust. Soc. Am. 1 February 2024; 155 (2): 1343–1352. 
+% https://doi.org/10.1121/10.0024975
 % 
 %
 
@@ -27,21 +28,25 @@ s_grid.Z = Z;
 % Z0 = Normalized wall impedance [x+, y+, z+, x-, y-, z-]
 
 %% Figure 2a
+figure
 L_v = [15, 15, 15]; 
 Z0 = [10, 10, 10, 10, 10, 10]; 
 RT60 = ISM_Formula3D(L_v, Z0, s_grid, isAngleDependent);
+subplot(1,3,1)
 PlotDirectionalRT60(s_grid, RT60);
 
 %% Figure 2b
 L_v = [8, 8, 8];
 Z0 = [20, 20, 20, 0.4, 5, 5];
 RT60 = ISM_Formula3D(L_v, Z0, s_grid, isAngleDependent);
+subplot(1,3,2)
 PlotDirectionalRT60(s_grid, RT60);
 
 %% Figure 2c
 L_v = [6, 7, 11];
 Z0 = [20, 0.4, 20, 20, 72, 0.4];
 RT60 = ISM_Formula3D(L_v, Z0, s_grid, isAngleDependent);
+subplot(1,3,3)
 PlotDirectionalRT60(s_grid, RT60);
 
 % % -----------------------------------------
@@ -60,7 +65,7 @@ end
 function PlotDirectionalRT60(s_grid, RT60)
     
     %% Draw RT60 values on the spherical grid
-    figure
+    %figure
     surf(s_grid.X, s_grid.Y, s_grid.Z, RT60)
 
     %% Draw axis
@@ -89,7 +94,10 @@ function PlotDirectionalRT60(s_grid, RT60)
 
     h = colorbar('south', 'AxisLocation', 'out');
     h.Label.Interpreter = 'latex';
+    set(h,'TickLabelInterpreter','latex');
     h.Label.String = '$\mathrm{RT}_{60}$';
+    h.Label.FontSize = 12;
+    h.FontSize = 12;
     set(gca,'ColorScale','log')
     set(gca,'DataAspectRatio',[1 1 1])
     set(gca,'Projection', 'perspective');
